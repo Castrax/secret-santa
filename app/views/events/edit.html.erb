@@ -5,7 +5,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container mb-5">
   <%= simple_form_for @event do |f| %>
     <%= f.error_notification %>
 
@@ -13,9 +13,9 @@
 
     <%= f.input :description, label: 'La description de votre événement', error: 'Veuillez entrer une description' %>
 
-    <%= f.input :date, error: 'Veuillez entrer une date' %>
+    <%= f.input :date, label: "La date de l'événement", error: 'Veuillez entrer une date' %>
 
-    <%= f.input :max_amount, error: 'Veuillez entrer un montant maximum' %>
+    <%= f.input :max_amount, label: "Le montant maximum pour le cadeau", error: 'Veuillez entrer un montant maximum' %>
 
     <h2>Ajouter des amis au Secret Santa</h2>
     <%= f.simple_fields_for :friends do |builder| %>
