@@ -1,0 +1,61 @@
+.banner-event-show  {
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+}
+
+.banner-event-show h2 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner-event-show p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.banner-event-new  {
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+}
+
+.banner-event-new h2 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner-event-new p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.pseudo-show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pseudo-show > input {
+  margin-left: 2rem;
+}
+
+.email-show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.email-show > input {
+  margin-left: 2rem;
+}

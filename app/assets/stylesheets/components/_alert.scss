@@ -4,3 +4,6 @@
   right: 16px;
   z-index: 1000;
 }
+
+.alert-notice { @extend .alert-warning; }
+.alert-error  { @extend .alert-danger; }

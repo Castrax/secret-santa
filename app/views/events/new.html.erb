@@ -1,0 +1,27 @@
+<div class="banner-event-new" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/PAykYb-8Er8);">
+  <div class="container">
+    <h2>Créez votre propre Secret Santa</h2>
+    <p>Invitez des participants et envoyez leur leurs Santas</p>
+  </div>
+</div>
+
+<div class="container">
+  <%= simple_form_for @event do |f| %>
+    <%= f.error_notification %>
+
+    <%= f.input :title, label: 'Le titre de votre événement', error: 'Veuillez entrer un titre' %>
+
+    <%= f.input :description, label: 'La description de votre événement', error: 'Veuillez entrer une description' %>
+
+    <%= f.input :date, error: 'Veuillez entrer une date' %>
+
+    <%= f.input :max_amount, error: 'Veuillez entrer un montant maximum' %>
+
+    <h2>Ajouter des amis au Secret Santa</h2>
+    <%= f.simple_fields_for :friends do |builder| %>
+      <%= render "friend_fields", :f => builder %>
+    <% end %>
+
+    <%= f.submit "Ajouter l'événement", class: "btn-primary" %>
+  <% end %>
+</div>

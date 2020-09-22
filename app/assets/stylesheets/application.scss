@@ -1,3 +1,5 @@
+$theme-colors: ( "bootstrap": #563d7c, "simpleform": #00617f );
+
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
@@ -11,3 +13,9 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+// Events
+@import "events/show";
+
+// simple_form helpers
+@import "simple_form-bootstrap/simple_form-bootstrap";
