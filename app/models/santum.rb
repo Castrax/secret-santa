@@ -1,0 +1,2 @@
+class Santum < ApplicationRecord
+end
