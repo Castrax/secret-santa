@@ -11,6 +11,16 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.new(event_params)
     if @event.save
+      @friends = @event.friends
+      @santas = @friends.shuffle
+      @santas << @santas.first
+      assignments = @santas.each_cons(2).to_a
+      assignments.each do |assign|
+        @friend = Friend.where(name: assign[0].name)[0]
+        @friend.santa_name = Friend.where(email: assign[1].email)[0].name
+        @friend.santa_email = Friend.where(email: assign[1].email)[0].email
+        @friend.save
+      end
       redirect_to @event
     else
       render :new
@@ -25,16 +35,11 @@ class EventsController < ApplicationController
 
   def send_event_mail
     @friends = @event.friends
-    @santas = @friends.shuffle
-    @santas << @santas.first
-    assignments = @santas.each_cons(2).to_a
-    assignments.each do |assign|
-      @friend = assign[0][0]
-      @santa = assign[0][1]
-      SantaMailer.santa_send(@event, @friend, @santa).deliver
-      flash[:notice] = "Santa a bien été envoyé."
-      redirect_to event_path(@event)
+    @friends.each do |friend|
+      SantaMailer.santa_send(@event, friend).deliver
     end
+    flash[:notice] = "Santa a bien été envoyé."
+    redirect_to event_path(@event)
   end
 
   private
