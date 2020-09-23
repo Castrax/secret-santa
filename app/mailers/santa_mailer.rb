@@ -2,11 +2,11 @@ class SantaMailer < ApplicationMailer
 
   default from: "hello@santa.com"
 
-  def santa_send(event, friend)
+  def santa_send(event, friends)
     @event = event
-    @friend = friend
-    @friend.each do |f|
-      mail(to: "#{f.email}", subject: "Votre santa révélé !")
+    @friends = friends
+    @friends.each do |friend|
+      mail(to: "#{friend.email}", subject: "Votre santa révélé !")
     end
   end
 end

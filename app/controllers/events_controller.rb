@@ -35,9 +35,7 @@ class EventsController < ApplicationController
 
   def send_event_mail
     @friends = @event.friends
-    @friends.each do |friend|
-      SantaMailer.santa_send(@event, friend).deliver
-    end
+    SantaMailer.santa_send(@event, @friends).deliver
     flash[:notice] = "Santa a bien été envoyé."
     redirect_to event_path(@event)
   end
